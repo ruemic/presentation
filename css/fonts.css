@@ -50,7 +50,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-github, .icon-facebook, .icon-google-plus, .icon-twitter, .icon-feed, .icon-linkedin, .icon-pinterest, .icon-cloud, .icon-balloon, .icon-google-plus-sign, .icon-apple, .icon-dropbox, .icon-tumblr-sign, .icon-cogs, .icon-envelope-alt, .icon-trello, .icon-foursquare, .icon-android, .icon-flickr, .icon-android-2, .icon-paypal, .icon-steam {
+.icon-github, .icon-facebook, .icon-google-plus, .icon-twitter, .icon-feed, .icon-linkedin, .icon-pinterest, .icon-cloud, .icon-balloon, .icon-google-plus-sign, .icon-apple, .icon-dropbox, .icon-tumblr-sign, .icon-cogs, .icon-envelope-alt, .icon-trello, .icon-foursquare, .icon-android, .icon-flickr, .icon-android-2, .icon-paypal, .icon-steam, .icon-file {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -125,4 +125,7 @@ you can use the generic selector below, but it's slower:
 }
 .icon-steam:before {
 	content: "\e00a";
+}
+.icon-file:before {
+	content: "\e004";
 }
