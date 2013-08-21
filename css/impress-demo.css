@@ -1,0 +1,593 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*
+Now here is when interesting things start to appear.
+
+We set up <body> styles with default font and nice gradient in the background.
+And yes, there is a lot of repetition there because of -prefixes but we don't
+want to leave anybody behind.
+*/
+body {
+    font-family: 'Avenir Next', sans-serif;
+    min-height: 740px;
+
+    background: red;
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(240, 240, 240)), to(rgb(190, 190, 190)));
+    background: -webkit-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:    -moz-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:     -ms-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:      -o-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:         radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    font-weight:         600;
+}
+
+/*
+Now let's bring some text styles back ...
+*/
+b, strong { font-weight: bold }
+i, em { font-style: italic }
+i { -webkit-font-smoothing:antialiased }
+/*
+... and give links a nice look.
+*/
+a {
+    color: inherit;
+    text-decoration: none;
+    padding: 0 0.1em;
+    background: rgba(255,255,255,0.5);
+    text-shadow: -1px -1px 2px rgba(100,100,100,0.9);
+    border-radius: 0.2em;
+
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+}
+
+a:hover,
+a:focus {
+    background: rgba(255,255,255,1);
+    text-shadow: -1px -1px 2px rgba(100,100,100,0.5);
+}
+
+img { border-radius: 5px; }
+
+.fallback-message {
+    font-family: sans-serif;
+    line-height: 1.3;
+
+    width: 780px;
+    padding: 10px 10px 0;
+    margin: 20px auto;
+
+    border: 1px solid #E4C652;
+    border-radius: 10px;
+    background: #EEDC94;
+}
+
+.fallback-message p {
+    margin-bottom: 10px;
+}
+
+.impress-supported .fallback-message {
+    display: none;
+}
+
+.step {
+    position: relative;
+    width: 900px;
+    padding: 40px;
+    margin: 20px auto;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    -ms-box-sizing:     border-box;
+    -o-box-sizing:      border-box;
+    box-sizing:         border-box;
+
+    font-size: 48px;
+    line-height: 1.5;
+}
+
+.impress-enabled .step {
+    margin: 0;
+    opacity: 0.3;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition:    opacity 1s;
+    -ms-transition:     opacity 1s;
+    -o-transition:      opacity 1s;
+    transition:         opacity 1s;
+}
+
+.impress-enabled .step.active { opacity: 1 }
+
+.slide {
+    display: block;
+
+    width: 900px;
+    height: 700px;
+    padding: 40px 60px;
+
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+
+    color: rgb(102, 102, 102);
+    text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -1px;
+}
+
+.slide q {
+    display: block;
+    font-size: 42px;
+    line-height: 72px;
+    margin: 20px 0 30px;
+}
+
+.slide q strong {
+    white-space: nowrap;
+}
+
+
+#start .brig {
+    margin: 94px auto;
+    display: block;
+    border-radius: 100%;
+    box-shadow: -1px -1px 1px #A8A8A8, 1px 1px 1px #999, 0 0 250px #004880;
+    border: 5px solid #2F77A0;
+    width: 520px;
+}
+
+#bassackwards img {
+    position: absolute;
+}
+#bassackwards .support {
+    bottom: 2%;
+    width: 442px;
+    right: 2%;
+}
+#bassackwards .cpanel {
+    width: 450px;
+    top: 21%;
+}
+#bassackwards .ftp {
+    width: 475px;
+    right: 4%;
+    top: 29%;
+}
+
+#bassackwards .facepalm {
+    width: 280px;
+    bottom:4%;
+    border-radius: 100%;
+    left: inherit;
+    border: 7px solid #2F77A0;
+    box-shadow: -1px -1px 1px #FFF, 1px 1px 1px #292929;
+}
+#optimize .grunt {
+    width: 100%;
+    height: 80%;
+}
+#optimize .double-facepalm {
+    position: absolute;
+    right: 4%;
+    width: 301px;
+    border-radius: 100%;
+    bottom: 5%;
+    border: 10px solid #2F77A0;
+    box-shadow: -1px -1px 1px #FFF, 1px 1px 1px #999999;
+}
+
+#slow-web .loading {
+    width: 537px;
+    margin: 20px auto;
+    display: block;
+}
+#slow-web .loading-text {
+    position: absolute;
+    top: 57%;
+    left: 34%;
+    font-size: 70px;
+}
+
+#better-way {
+    z-index: 100;
+}
+
+#better-way a {
+    background: none;
+    margin: 0 auto;
+    display: block;
+    width: 670px;
+}
+
+#better-way h1 {
+    font-size: 50px;
+    margin: 20px 0 50px;
+    text-align: center;
+}
+
+#overview.future { opacity: .02; }
+#overview.past { opacity: 1; }
+
+i { color: #52647E; }
+
+#overview .icon-balloon {
+    position: absolute;
+    top: -210px;
+    left: 78px;
+    font-size: 10em;
+    border-radius: 100%;
+    padding: .1em .36em;
+    transition: all 2s;
+}
+
+
+#forms.future { opacity: 0; }
+
+#forms i {
+    font-size: 300px;
+    position: absolute;
+}
+#forms .icon-arrow {
+    top: -.5em;
+    left: .85em;
+}
+#forms .icon-mail {
+    top: -.5em;
+    left:1.78em;
+}
+
+#api {
+    height: 600px;
+    opacity: 0;
+}
+#api .logo, #api h1 {
+    z-index: 1000;
+    position: relative;
+}
+#api .logo {
+    width: 442px;
+    margin: -55px auto 0;
+    display: block;
+}
+#api h1 {
+    text-align: center;
+    color: #252F57;
+    margin: 0 auto;
+    display: block;
+    font-size: 32px;
+}
+.services i {
+    position: absolute;
+    background: white;
+    border-radius: 100%;
+    color: #52647E;
+    width: 86px;
+    line-height: 86px;
+    text-align: center;
+}
+
+.services i.large {
+    font-size: 75px;
+    width: 126px;
+    line-height: 126px;
+}
+.services i.small {
+    font-size: 24px;
+    padding: 14px
+}
+.services .icon-balloon {
+    width: 240px;
+    font-size: 180px;
+    line-height: 240px;
+    top: 32%; left: 35%;
+}
+
+
+.impress-on-api #forms,
+.impress-on-api #overview {
+    opacity: 1;
+}
+.impress-on-api #better-way,
+.impress-on-api .slide {
+    opacity: 0;
+}
+.impress-on-api #api {
+    opacity: 1;
+}
+
+.services .icon-github      { top: 73%; left: 20%; position: absolute; }
+.services .icon-trello      { top: 33%; left: 14%; position: absolute; }
+
+.services .icon-envelope-alt{ top: 43%; left: 74%; position: absolute; }
+
+
+.services .icon-google-plus { top: 46%; left: 100%; }
+.services .icon-twitter     { top: 3%; left: -6%; }
+.services .icon-linkedin    { top: 2%; left: 93%; }
+.services .icon-facebook    { top: 86%; left: -7%; }
+.services .icon-feed { top: 88%; left: 90%; }
+.services .icon-android     { top: 46%; left: -13%; }
+
+
+.impress-on-api #overview .icon-balloon {
+    background: #FFF;
+}
+
+
+.ripple {
+  border: 10px solid #FFFFFF;
+  width: 500px;
+  height: 500px;
+  border-radius: 500px;
+  position: absolute;
+  opacity: 0;
+  z-index: -1
+}
+.ripple-1 {
+    top: -59%;
+    left: -58%;
+    -webkit-animation: ripple 5s linear infinite;
+}
+
+/*.ripple-github {
+    -webkit-animation: outer-ripple 5s linear infinite;
+    top: -28px;
+    left: -27px;
+    z-index: -1;
+}
+*/
+.social-ripple {
+    -webkit-animation: outer-ripple 5s linear infinite;
+    top: -32px;
+    left: -32px;
+    z-index: -1;
+}
+
+.ripple.secondary {
+  border: 5px solid #C9F1F8;
+  width: 140px;
+  height: 140px;
+  border-radius: 100px;
+  position: absolute;
+  opacity: 0;
+}
+.icon-android .ripple.secondary     { border: 5px solid #d4f8cf; }
+.icon-google-plus .ripple.secondary { border: 5px solid #FFEEED; }
+.icon-feed .ripple.secondary        { border: 5px solid #e7daf8; }
+.icon-android .ripple.secondary     { border: 5px solid #d4f8cf; }
+.icon-android .ripple.secondary     { border: 5px solid #d4f8cf; }
+
+
+
+
+@-webkit-keyframes ripple {
+    from {
+        -webkit-transform: scale(0);
+        opacity: .75;
+    }
+    to {
+        -webkit-transform: scale(3);
+        opacity: 0;
+    }
+}
+
+
+@-webkit-keyframes outer-ripple {
+    0% {
+        -webkit-transform: scale(0);
+        opacity: .75;
+    }
+    55% {
+        -webkit-transform: scale(0);
+        opacity: .75;
+    }
+    88% {
+        -webkit-transform: scale(3);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: scale(3);
+        opacity: 0;
+    }
+}
+
+
+
+
+/*
+We also make other steps visible and give them a pointer cursor using the
+`impress-on-` class.
+*/
+.impress-on-overview .step {
+    opacity: 1;
+    cursor: pointer;
+}
+.impress-on-api #forms {
+    display: none
+}
+
+.hint {
+/*
+    We hide the hint until presentation is started and from browsers not supporting
+    impress.js, as they will have a linear scrollable view ...
+    */
+    display: none;
+
+/*
+    ... and give it some fixed position and nice styles.
+    */
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 200px;
+
+    background: rgba(0,0,0,0.5);
+    color: #EEE;
+    text-align: center;
+
+    font-size: 50px;
+    padding: 20px;
+
+    z-index: 100;
+
+/*
+    By default we don't want the hint to be visible, so we make it transparent ...
+    */
+    opacity: 0;
+
+/*
+    ... and position it below the bottom of the screen (relative to it's fixed position)
+    */
+    -webkit-transform: translateY(400px);
+    -moz-transform:    translateY(400px);
+    -ms-transform:     translateY(400px);
+    -o-transform:      translateY(400px);
+    transform:         translateY(400px);
+
+/*
+    Now let's imagine that the hint is visible and we want to fade it out and move out
+    of the screen.
+
+    So we define the transition on the opacity property with 1s duration and another
+    transition on transform property delayed by 1s so it will happen after the fade out
+    on opacity finished.
+
+    This way user will not see the hint moving down.
+    */
+    -webkit-transition: opacity 1s, -webkit-transform 0.5s 1s;
+    -moz-transition:    opacity 1s,    -moz-transform 0.5s 1s;
+    -ms-transition:     opacity 1s,     -ms-transform 0.5s 1s;
+    -o-transition:      opacity 1s,      -o-transform 0.5s 1s;
+    transition:         opacity 1s,         transform 0.5s 1s;
+}
+
+/*
+Now we 'enable' the hint when presentation is initialized ...
+*/
+.impress-enabled .hint { display: block }
+
+/*
+... and we will show it when the first step (with id 'start') is active.
+*/
+.impress-on-start .hint {
+/*
+    We remove the transparency and position the hint in its default fixed
+    position.
+    */
+    opacity: 1;
+
+    -webkit-transform: translateY(0px);
+    -moz-transform:    translateY(0px);
+    -ms-transform:     translateY(0px);
+    -o-transform:      translateY(0px);
+    transform:         translateY(0px);
+
+/*
+    Now for fade in transition we have the oposite situation from the one
+    above.
+
+    First after 4.5s delay we animate the transform property to move the hint
+    into its correct position and after that we fade it in with opacity
+    transition.
+    */
+    -webkit-transition: opacity 1s 5s, -webkit-transform 0.5s 4.5s;
+    -moz-transition:    opacity 1s 5s,    -moz-transform 0.5s 4.5s;
+    -ms-transition:     opacity 1s 5s,     -ms-transform 0.5s 4.5s;
+    -o-transition:      opacity 1s 5s,      -o-transform 0.5s 4.5s;
+    transition:         opacity 1s 5s,         transform 0.5s 4.5s;
+}
+
+/*
+And as the last thing there is a workaround for quite strange bug.
+It happens a lot in Chrome. I don't remember if I've seen it in Firefox.
+
+Sometimes the element positioned in 3D (especially when it's moved back
+along Z axis) is not clickable, because it falls 'behind' the <body>
+element.
+
+To prevent this, I decided to make <body> non clickable by setting
+pointer-events property to `none` value.
+Value if this property is inherited, so to make everything else clickable
+I bring it back on the #impress element.
+
+If you want to know more about `pointer-events` here are some docs:
+https://developer.mozilla.org/en/CSS/pointer-events
+
+There is one very important thing to notice about this workaround - it makes
+everything 'unclickable' except what's in #impress element.
+
+So use it wisely ... or don't use at all.
+*/
+.impress-enabled          { pointer-events: none }
+.impress-enabled #impress { pointer-events: auto }
+
+/*
+There is one funny thing I just realized.
+
+Thanks to this workaround above everything except #impress element is invisible
+for click events. That means that the hint element is also not clickable.
+So basically all of this transforms and delayed transitions trickery was probably
+not needed at all...
+
+But it was fun to learn about it, wasn't it?
+*/
+
+/*
+That's all I have for you in this file.
+Thanks for reading. I hope you enjoyed it at least as much as I enjoyed writing it
+for you.
+*/
+
