@@ -263,15 +263,7 @@ img { border-radius: 5px; }
 
 i { color: #52647E; }
 
-#overview .icon-balloon {
-    position: absolute;
-    top: -210px;
-    left: 78px;
-    font-size: 10em;
-    border-radius: 100%;
-    padding: .1em .36em;
-    transition: all 2s;
-}
+
 
 
 #forms.future { opacity: 0; }
@@ -599,7 +591,7 @@ We also make other steps visible and give them a pointer cursor using the
 /*
 Now we 'enable' the hint when presentation is initialized ...
 */
-.impress-enabled .hint { display: block }
+/*.impress-enabled .hint { display: block }*/
 
 /*
 ... and we will show it when the first step (with id 'start') is active.
